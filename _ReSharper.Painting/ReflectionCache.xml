@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Assemblies Version="1073741833">
-  <Assembly Name="System.Core, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Image="4e96ebed-2d70-4504-a743-49e7bc5b8ed8" Timestamp="633802652813154876" XmlDocIndexTimestamp="633264963640000000" />
-  <Assembly Name="System.Xml.Linq, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Image="6be490ad-ba5d-4d8c-9faa-c9becda468fd" Timestamp="633802652854494876" XmlDocIndexTimestamp="633258061180000000" />
-  <Assembly Name="System.Data.DataSetExtensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" Image="a2643c8d-52b0-46c2-80bc-d2a96d60b63b" Timestamp="633802652814870876" XmlDocIndexTimestamp="633264963640000000" />
-  <Assembly Name="JetBrains.Annotations, Version=4.0.819.19, Culture=neutral, PublicKeyToken=1010a0d8d6380325" Image="22aebed9-4877-435c-9ab7-9c8007889c51" Timestamp="633486347860000000" XmlDocIndexTimestamp="633486347860000000" />
-</Assemblies>
