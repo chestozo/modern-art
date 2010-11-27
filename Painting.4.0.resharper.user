@@ -1,0 +1,120 @@
+<Configuration>
+  <UnitTestRunner>
+    <CustomStartDirectory>
+    </CustomStartDirectory>
+    <UseShadowCopy>True</UseShadowCopy>
+    <UseCustomFolder>False</UseCustomFolder>
+    <EnableUnitTesting>True</EnableUnitTesting>
+    <Providers />
+  </UnitTestRunner>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="E4C84CF3-AA06-4C2F-961B-F66D35C65DFC/f:Viewer.Designer.cs" caret="1404" scrollPosition="0|0" />
+      <File id="E4C84CF3-AA06-4C2F-961B-F66D35C65DFC/f:Form1.cs" caret="1064" scrollPosition="0|6" />
+      <File id="E4C84CF3-AA06-4C2F-961B-F66D35C65DFC/f:Viewer.cs" caret="252" scrollPosition="0|0" />
+      <File id="E4C84CF3-AA06-4C2F-961B-F66D35C65DFC/f:ImageManager.cs" caret="1808" scrollPosition="0|78" />
+      <File id="E4C84CF3-AA06-4C2F-961B-F66D35C65DFC/f:WinApi.cs" caret="1396" scrollPosition="0|0" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="E4C84CF3-AA06-4C2F-961B-F66D35C65DFC/f:WinApi.cs" caret="2081" scrollPosition="0|78" />
+      <File id="E4C84CF3-AA06-4C2F-961B-F66D35C65DFC/f:Viewer.Designer.cs" caret="1404" scrollPosition="0|24" />
+      <File id="E4C84CF3-AA06-4C2F-961B-F66D35C65DFC/f:Form1.cs" caret="730" scrollPosition="0|7" />
+      <File id="E4C84CF3-AA06-4C2F-961B-F66D35C65DFC/f:ImageManager.cs" caret="1437" scrollPosition="0|0" />
+      <File id="E4C84CF3-AA06-4C2F-961B-F66D35C65DFC/f:Viewer.cs" caret="0" scrollPosition="0|0" />
+      <File id="E4C84CF3-AA06-4C2F-961B-F66D35C65DFC/f:Viewer.cs" caret="411" scrollPosition="0|0" />
+      <File id="E4C84CF3-AA06-4C2F-961B-F66D35C65DFC/f:Viewer.cs" caret="382" scrollPosition="0|0" />
+      <File id="E4C84CF3-AA06-4C2F-961B-F66D35C65DFC/f:Viewer.cs" caret="304" scrollPosition="0|0" />
+      <File id="E4C84CF3-AA06-4C2F-961B-F66D35C65DFC/f:ImageManager.cs" caret="2823" scrollPosition="0|63" />
+      <File id="E4C84CF3-AA06-4C2F-961B-F66D35C65DFC/f:ImageManager.cs" caret="2927" scrollPosition="0|75" />
+      <File id="E4C84CF3-AA06-4C2F-961B-F66D35C65DFC/f:ImageManager.cs" caret="1536" scrollPosition="0|48" />
+      <File id="E4C84CF3-AA06-4C2F-961B-F66D35C65DFC/f:Form1.cs" caret="940" scrollPosition="0|18" />
+      <File id="E4C84CF3-AA06-4C2F-961B-F66D35C65DFC/f:ImageManager.cs" caret="1437" scrollPosition="0|6" />
+      <File id="E4C84CF3-AA06-4C2F-961B-F66D35C65DFC/f:ImageManager.cs" caret="1437" scrollPosition="0|6" />
+      <File id="E4C84CF3-AA06-4C2F-961B-F66D35C65DFC/f:ImageManager.cs" caret="1437" scrollPosition="0|9" />
+      <File id="E4C84CF3-AA06-4C2F-961B-F66D35C65DFC/f:ImageManager.cs" caret="1437" scrollPosition="0|18" />
+      <File id="E4C84CF3-AA06-4C2F-961B-F66D35C65DFC/f:ImageManager.cs" caret="1945" scrollPosition="0|36" />
+      <File id="E4C84CF3-AA06-4C2F-961B-F66D35C65DFC/f:ImageManager.cs" caret="1945" scrollPosition="0|60" />
+      <File id="E4C84CF3-AA06-4C2F-961B-F66D35C65DFC/f:ImageManager.cs" caret="1945" scrollPosition="0|60" />
+      <File id="E4C84CF3-AA06-4C2F-961B-F66D35C65DFC/f:ImageManager.cs" caret="1945" scrollPosition="0|60" />
+      <File id="E4C84CF3-AA06-4C2F-961B-F66D35C65DFC/f:ImageManager.cs" caret="2602" scrollPosition="0|75" />
+      <File id="E4C84CF3-AA06-4C2F-961B-F66D35C65DFC/f:Form1.cs" caret="547" scrollPosition="0|9" />
+      <File id="E4C84CF3-AA06-4C2F-961B-F66D35C65DFC/f:WinApi.cs" caret="1566" scrollPosition="0|45" />
+      <File id="E4C84CF3-AA06-4C2F-961B-F66D35C65DFC/f:Form1.cs" caret="469" scrollPosition="0|0" />
+      <File id="E4C84CF3-AA06-4C2F-961B-F66D35C65DFC/f:Form1.cs" caret="184" scrollPosition="0|0" />
+      <File id="E4C84CF3-AA06-4C2F-961B-F66D35C65DFC/f:ImageManager.cs" caret="2201" scrollPosition="0|84" />
+      <File id="E4C84CF3-AA06-4C2F-961B-F66D35C65DFC/f:ImageManager.cs" caret="1437" scrollPosition="0|36" />
+      <File id="E4C84CF3-AA06-4C2F-961B-F66D35C65DFC/f:WinApi.cs" caret="1396" scrollPosition="0|40" />
+      <File id="E4C84CF3-AA06-4C2F-961B-F66D35C65DFC/f:Viewer.cs" caret="252" scrollPosition="0|0" />
+      <File id="E4C84CF3-AA06-4C2F-961B-F66D35C65DFC/f:Form1.cs" caret="1064" scrollPosition="0|6" />
+    </RecentEdits>
+  </RecentFiles>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+      <setting name="UseSolutionBuilder">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Default">
+      <Item value="Viewer" priority="0" />
+      <Item value="Show" priority="0" />
+      <Item value="FormState" priority="0" />
+      <Item value="Maximize" priority="1" />
+      <Item value="folderDialog" priority="0" />
+      <Item value="ShowDialog" priority="0" />
+      <Item value="DialogResult.OK" priority="0" />
+      <Item value="Text" priority="1" />
+      <Item value="SelectedPath" priority="0" />
+      <Item value="PictureBox" priority="0" />
+      <Item value="Timer" priority="0" />
+      <Item value="Enabled" priority="1" />
+      <Item value="Start" priority="0" />
+      <Item value="Stop" priority="0" />
+      <Item value="Tick" priority="0" />
+      <Item value="FromImage" priority="1" />
+      <Item value="Image" priority="1" />
+      <Item value="FillRectangle" priority="2" />
+      <Item value="Black" priority="1" />
+      <Item value="Bounds" priority="5" />
+      <Item value="Init" priority="0" />
+      <Item value="BackgroundImage" priority="0" />
+      <Item value="Height" priority="6" />
+      <Item value="Graphics" priority="1" />
+      <Item value="Bitmap" priority="2" />
+      <Item value="Width" priority="7" />
+      <Item value="DrawImage" priority="2" />
+      <Item value="Clone" priority="0" />
+      <Item value="DrawAction" priority="0" />
+      <Item value="Draw" priority="0" />
+      <Item value="selectFolder" priority="0" />
+      <Item value="GetFiles" priority="0" />
+      <Item value="FileInfo" priority="0" />
+      <Item value="Combine" priority="0" />
+      <Item value="CreationTime" priority="2" />
+      <Item value="FullName" priority="2" />
+      <Item value="FromFile" priority="0" />
+      <Item value="cbAutoLoad" priority="0" />
+      <Item value="Checked" priority="0" />
+      <Item value="ImageManager" priority="1" />
+      <Item value="StartMonitor" priority="1" />
+      <Item value="StopMonitor" priority="0" />
+      <Item value="Interval" priority="0" />
+      <Item value="OnPaint" priority="0" />
+      <Item value="DrawLine" priority="0" />
+      <Item value="Red" priority="0" />
+      <Item value="DrawString" priority="0" />
+      <Item value="ToString" priority="0" />
+      <Item value="Font" priority="0" />
+      <Item value="Green" priority="0" />
+      <Item value="Invalidate" priority="1" />
+      <Item value="imageViewForm" priority="0" />
+      <Item value="maximizer" priority="0" />
+      <Item value="Resize" priority="0" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+</Configuration>

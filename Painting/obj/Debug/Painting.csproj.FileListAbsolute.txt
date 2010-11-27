@@ -1,0 +1,9 @@
+C:\Users\chestozo\Documents\Visual Studio 2008\Projects\Painting\Painting\bin\Debug\Painting.exe
+C:\Users\chestozo\Documents\Visual Studio 2008\Projects\Painting\Painting\bin\Debug\Painting.pdb
+C:\Users\chestozo\Documents\Visual Studio 2008\Projects\Painting\Painting\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\chestozo\Documents\Visual Studio 2008\Projects\Painting\Painting\obj\Debug\Painting.Form1.resources
+C:\Users\chestozo\Documents\Visual Studio 2008\Projects\Painting\Painting\obj\Debug\Painting.Properties.Resources.resources
+C:\Users\chestozo\Documents\Visual Studio 2008\Projects\Painting\Painting\obj\Debug\Painting.Viewer.resources
+C:\Users\chestozo\Documents\Visual Studio 2008\Projects\Painting\Painting\obj\Debug\Painting.csproj.GenerateResource.Cache
+C:\Users\chestozo\Documents\Visual Studio 2008\Projects\Painting\Painting\obj\Debug\Painting.exe
+C:\Users\chestozo\Documents\Visual Studio 2008\Projects\Painting\Painting\obj\Debug\Painting.pdb
