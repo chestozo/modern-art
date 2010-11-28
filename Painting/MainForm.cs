@@ -7,6 +7,7 @@ namespace Painting
 	{
 		private readonly FormState maximizer = new FormState();
 		private Viewer _imageViewForm;
+		private readonly ImageManager _imgMan = new ImageManager();
 
 		public MainForm()
 		{
@@ -19,14 +20,14 @@ namespace Painting
 			tbFolder.Text = Properties.Settings.Default.workingDirectory;
 		}
 
-		private void button1_Click(object sender, EventArgs e)
+		private void btnShowImage_Click(object sender, EventArgs e)
 		{
 			_imageViewForm = new Viewer();
 			_imageViewForm.Show();
 
-			ImageManager.Init(_imageViewForm.Bounds, tbFolder.Text, _imageViewForm);
-			_imageViewForm.DrawAction = ImageManager.Draw;
-			ImageManager.StartMonitor();
+			_imgMan.Init(tbFolder.Text, _imageViewForm);
+			_imageViewForm.DrawAction = _imgMan.Draw;
+			_imgMan.StartMonitor();
 		}
 
 		private void selectFolder_Click(object sender, EventArgs e)
@@ -40,6 +41,16 @@ namespace Painting
 		private void btnMaximize_Click(object sender, EventArgs e)
 		{
 			maximizer.Maximize(_imageViewForm);
+		}
+
+		private void btnMinimize_Click(object sender, EventArgs e)
+		{
+			maximizer.Restore(_imageViewForm);
+		}
+
+		private void btnRefresh_Click(object sender, EventArgs e)
+		{
+			_imgMan.UpdateImageSize();
 		}
 	}
 }

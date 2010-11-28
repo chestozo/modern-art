@@ -5,32 +5,31 @@ using System.Windows.Forms;
 
 namespace Painting
 {
-	public static class ImageManager
+	public class ImageManager
 	{
-		private static string _folder;
-		private static Form _form;
-		private static Timer _tick;
-		//private static Rectangle _rect;
-		private static FileInfo _currentImage;
+		private string _folder;
+		private Form _form;
+		private Timer _tick;
+		private FileInfo _currentImage;
 
 		// Хранит текущую отображаемую картинку.
-		private static Image _image;
+		private Image _image;
 
-		public static void Init(Rectangle rect, string folder, Form form)
+		public void Init(string folder, Form form)
 		{
 			_form = form;
 			_folder = folder;
-			//_rect = rect;
-			_image = new Bitmap(rect.Width, rect.Height);
+
+			InitEmptyImage();
 			ShowMalevich();
 
-			_tick = new Timer { Interval = 1000 };
+			_tick = new Timer { Interval = 300 };
 			_tick.Tick += _tick_Tick;
 
 			_form.Resize += delegate { UpdateImageSize(); };
 		}
 
-		private static void UpdateImageSize()
+		public void UpdateImageSize()
 		{
 			if (_image != null)
 			{
@@ -39,33 +38,34 @@ namespace Painting
 					// Finalize image
 				}
 			}
-			_image = new Bitmap(_form.Bounds.Width, _form.Bounds.Height);
+			InitEmptyImage();
 			DrawImage(_currentImage);
+			_form.Invalidate();
 		}
 
-		public static void Draw(Graphics gr)
+		public void Draw(Graphics gr)
 		{
 			gr.DrawImage(_image, 0, 0);
 		}
 
-		static void _tick_Tick(object sender, EventArgs e)
+		private void _tick_Tick(object sender, EventArgs e)
 		{
 			UpdatePainting();
 		}
 
-		public static void StartMonitor()
+		public void StartMonitor()
 		{
 			_tick.Enabled = true;
 			_tick.Start();
 		}
 
-		public static void StopMonitor()
+		public void StopMonitor()
 		{
 			_tick.Stop();
 			_tick.Enabled = false;
 		}
 
-		private static void UpdatePainting()
+		private void UpdatePainting()
 		{
 			var mostRecent = GetMostRecentImage();
 			if (mostRecent != null && (_currentImage == null || _currentImage.FullName != mostRecent.FullName))
@@ -77,7 +77,7 @@ namespace Painting
 			}
 		}
 
-		private static void ShowMalevich()
+		private void ShowMalevich()
 		{
 			using (var gr = Graphics.FromImage(_image))
 			{
@@ -85,19 +85,19 @@ namespace Painting
 			}
 		}
 
-		private static void ShowMalevich(Graphics gr)
+		private void ShowMalevich(Graphics gr)
 		{
 			gr.FillRectangle(Brushes.Black, 0, 0, _image.Width, _image.Height);
 		}
 
-		private static void DrawImage(FileInfo imageFile)
+		private void DrawImage(FileInfo imageFile)
 		{
 			using (var image = Image.FromFile(imageFile.FullName))
 			{
 				//Scale
 				var sw = (double)image.Width / _image.Width;
 				var sh = (double)image.Height / _image.Height;
-				var s = Math.Min(sw, sh);
+				var s = Math.Max(sw, sh);
 
 				//Calculate point
 				var w = image.Width / s;
@@ -115,7 +115,7 @@ namespace Painting
 			}
 		}
 
-		private static FileInfo GetMostRecentImage()
+		private FileInfo GetMostRecentImage()
 		{
 			FileInfo mostRecent = null;
 			foreach (var fileName in Directory.GetFiles(_folder, "*.jpg"))
@@ -127,9 +127,14 @@ namespace Painting
 			return mostRecent;
 		}
 
-		private static void ArchiveImage(FileInfo file)
+		private void ArchiveImage(FileInfo file)
 		{
 
+		}
+
+		private void InitEmptyImage()
+		{
+			_image = new Bitmap(_form.Bounds.Width, _form.Bounds.Height);
 		}
 	}
 }
