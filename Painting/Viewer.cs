@@ -9,14 +9,13 @@ namespace Painting
 		public Viewer()
 		{
 			InitializeComponent();
+			DrawAction = delegate { };
 		}
 
 		protected override void OnPaint(PaintEventArgs e)
 		{
 			base.OnPaint(e);
-
-			if (DrawAction != null)
-				DrawAction(e.Graphics);
+			DrawAction(e.Graphics);
 		}
 
 		public Action<Graphics> DrawAction

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Drawing;
 using System.IO;
+using System.Threading;
 using System.Windows.Forms;
+using Timer=System.Windows.Forms.Timer;
 
 namespace Painting
 {
