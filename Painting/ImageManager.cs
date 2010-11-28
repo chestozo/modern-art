@@ -13,6 +13,7 @@ namespace Painting
 		private Form _form;
 		private Timer _tick;
 		private FileInfo _currentImage;
+		private const int _updateInterval = 300; // milliseconds
 
 		// Хранит текущую отображаемую картинку.
 		private Image _image;
@@ -25,7 +26,7 @@ namespace Painting
 			InitEmptyImage();
 			ShowMalevich();
 
-			_tick = new Timer { Interval = 300 };
+			_tick = new Timer { Interval = _updateInterval };
 			_tick.Tick += _tick_Tick;
 
 			_form.Resize += delegate { UpdateImageSize(); };
@@ -94,7 +95,11 @@ namespace Painting
 
 		private void DrawImage(FileInfo imageFile)
 		{
-			using (var image = Image.FromFile(imageFile.FullName))
+			var fileName = imageFile.FullName;
+			while(FileHelper.IsFileInUse(fileName))
+				Thread.Sleep(200);
+
+			using (var image = Image.FromFile(fileName))
 			{
 				//Scale
 				var sw = (double)image.Width / _image.Width;
@@ -112,6 +117,7 @@ namespace Painting
 				using (var g = Graphics.FromImage(_image))
 				{
 					ShowMalevich(g);
+					g.Flush();
 					g.DrawImage(image, (int)x, (int)y, (int)w, (int)h);
 				}
 			}
