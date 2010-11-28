@@ -4,3 +4,4 @@ Painting/obj/**/*
 *.suo
 *.resharper
 *.resharper.user
+*.user

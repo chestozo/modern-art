@@ -42,7 +42,5 @@
 		}
 
 		#endregion
-
-		private System.Windows.Forms.ImageList imageList1;
 	}
 }

@@ -11,6 +11,12 @@ namespace Painting
 		public MainForm()
 		{
 			InitializeComponent();
+			FirstTimeLoad();
+		}
+
+		private void FirstTimeLoad()
+		{
+			tbFolder.Text = Properties.Settings.Default.workingDirectory;
 		}
 
 		private void button1_Click(object sender, EventArgs e)
@@ -28,18 +34,6 @@ namespace Painting
 			if (folderDialog.ShowDialog() == DialogResult.OK)
 			{
 				tbFolder.Text = folderDialog.SelectedPath;
-			}
-		}
-
-		private void cbAutoLoad_CheckedChanged(object sender, EventArgs e)
-		{
-			if (cbAutoLoad.Checked)
-			{
-				ImageManager.StartMonitor();
-			}
-			else
-			{
-				ImageManager.StopMonitor();
 			}
 		}
 

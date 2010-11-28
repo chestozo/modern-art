@@ -32,15 +32,17 @@
 			this.folderDialog = new System.Windows.Forms.FolderBrowserDialog();
 			this.tbFolder = new System.Windows.Forms.TextBox();
 			this.selectFolder = new System.Windows.Forms.Button();
-			this.cbAutoLoad = new System.Windows.Forms.CheckBox();
 			this.btnMaximize = new System.Windows.Forms.Button();
+			this.btnMinimize = new System.Windows.Forms.Button();
+			this.btnRefresh = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// button1
 			// 
-			this.button1.Location = new System.Drawing.Point(12, 159);
+			this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.button1.Location = new System.Drawing.Point(12, 127);
 			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(175, 33);
+			this.button1.Size = new System.Drawing.Size(219, 40);
 			this.button1.TabIndex = 0;
 			this.button1.Text = "Показать изображение";
 			this.button1.UseVisualStyleBackColor = true;
@@ -64,20 +66,9 @@
 			this.selectFolder.UseVisualStyleBackColor = true;
 			this.selectFolder.Click += new System.EventHandler(this.selectFolder_Click);
 			// 
-			// cbAutoLoad
-			// 
-			this.cbAutoLoad.AutoSize = true;
-			this.cbAutoLoad.Location = new System.Drawing.Point(12, 49);
-			this.cbAutoLoad.Name = "cbAutoLoad";
-			this.cbAutoLoad.Size = new System.Drawing.Size(345, 21);
-			this.cbAutoLoad.TabIndex = 3;
-			this.cbAutoLoad.Text = "Автоматически подгружать новое изображение";
-			this.cbAutoLoad.UseVisualStyleBackColor = true;
-			this.cbAutoLoad.CheckedChanged += new System.EventHandler(this.cbAutoLoad_CheckedChanged);
-			// 
 			// btnMaximize
 			// 
-			this.btnMaximize.Location = new System.Drawing.Point(193, 159);
+			this.btnMaximize.Location = new System.Drawing.Point(12, 185);
 			this.btnMaximize.Name = "btnMaximize";
 			this.btnMaximize.Size = new System.Drawing.Size(115, 33);
 			this.btnMaximize.TabIndex = 4;
@@ -85,13 +76,32 @@
 			this.btnMaximize.UseVisualStyleBackColor = true;
 			this.btnMaximize.Click += new System.EventHandler(this.btnMaximize_Click);
 			// 
+			// btnMinimize
+			// 
+			this.btnMinimize.Location = new System.Drawing.Point(133, 185);
+			this.btnMinimize.Name = "btnMinimize";
+			this.btnMinimize.Size = new System.Drawing.Size(98, 33);
+			this.btnMinimize.TabIndex = 5;
+			this.btnMinimize.Text = "Свернуть";
+			this.btnMinimize.UseVisualStyleBackColor = true;
+			// 
+			// btnRefresh
+			// 
+			this.btnRefresh.Location = new System.Drawing.Point(252, 185);
+			this.btnRefresh.Name = "btnRefresh";
+			this.btnRefresh.Size = new System.Drawing.Size(185, 33);
+			this.btnRefresh.TabIndex = 6;
+			this.btnRefresh.Text = "Обновить изображение";
+			this.btnRefresh.UseVisualStyleBackColor = true;
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(758, 204);
+			this.ClientSize = new System.Drawing.Size(758, 571);
+			this.Controls.Add(this.btnRefresh);
+			this.Controls.Add(this.btnMinimize);
 			this.Controls.Add(this.btnMaximize);
-			this.Controls.Add(this.cbAutoLoad);
 			this.Controls.Add(this.selectFolder);
 			this.Controls.Add(this.tbFolder);
 			this.Controls.Add(this.button1);
@@ -108,8 +118,9 @@
 		private System.Windows.Forms.FolderBrowserDialog folderDialog;
 		private System.Windows.Forms.TextBox tbFolder;
 		private System.Windows.Forms.Button selectFolder;
-		private System.Windows.Forms.CheckBox cbAutoLoad;
 		private System.Windows.Forms.Button btnMaximize;
+		private System.Windows.Forms.Button btnMinimize;
+		private System.Windows.Forms.Button btnRefresh;
 	}
 }
 
