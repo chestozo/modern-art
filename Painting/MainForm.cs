@@ -7,11 +7,16 @@ namespace Painting
 	{
 		private readonly FormState maximizer = new FormState();
 		private Viewer _imageViewForm;
-		private readonly ImageManager _imgMan = new ImageManager();
+		private ImageManager _imgMan;
 
 		public MainForm()
 		{
 			InitializeComponent();
+		}
+
+		protected override void OnLoad(EventArgs e)
+		{
+			base.OnLoad(e);
 			FirstTimeLoad();
 		}
 
@@ -22,10 +27,12 @@ namespace Painting
 
 		private void btnShowImage_Click(object sender, EventArgs e)
 		{
+			_imgMan = new ImageManager(tbFolder.Text, (int)nudArchSize.Value);
+
 			_imageViewForm = new Viewer();
 			_imageViewForm.Show();
 
-			_imgMan.Init(tbFolder.Text, _imageViewForm);
+			_imgMan.Init(_imageViewForm);
 			_imageViewForm.DrawAction = _imgMan.Draw;
 			_imgMan.StartMonitor();
 		}
@@ -51,6 +58,11 @@ namespace Painting
 		private void btnRefresh_Click(object sender, EventArgs e)
 		{
 			_imgMan.UpdateImageSize();
+		}
+
+		private void nudArchSize_ValueChanged(object sender, EventArgs e)
+		{
+			_imgMan.ArchSize = (int)nudArchSize.Value;
 		}
 	}
 }

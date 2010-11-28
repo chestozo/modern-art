@@ -38,6 +38,11 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
+			this.label4 = new System.Windows.Forms.Label();
+			this.nudArchSize = new System.Windows.Forms.NumericUpDown();
+			this.label5 = new System.Windows.Forms.Label();
+			this.label6 = new System.Windows.Forms.Label();
+			((System.ComponentModel.ISupportInitialize)(this.nudArchSize)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// btnShowImage
@@ -126,11 +131,65 @@
 			this.label3.TabIndex = 9;
 			this.label3.Text = "Шаг 2: Показать окно с фотографией:";
 			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.Location = new System.Drawing.Point(15, 260);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(200, 17);
+			this.label4.TabIndex = 10;
+			this.label4.Text = "Дополнительные настройки:";
+			// 
+			// nudArchSize
+			// 
+			this.nudArchSize.Location = new System.Drawing.Point(18, 316);
+			this.nudArchSize.Maximum = new decimal(new int[] {
+            5000,
+            0,
+            0,
+            0});
+			this.nudArchSize.Minimum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
+			this.nudArchSize.Name = "nudArchSize";
+			this.nudArchSize.Size = new System.Drawing.Size(120, 22);
+			this.nudArchSize.TabIndex = 11;
+			this.nudArchSize.Value = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
+			this.nudArchSize.ValueChanged += new System.EventHandler(this.nudArchSize_ValueChanged);
+			// 
+			// label5
+			// 
+			this.label5.AutoSize = true;
+			this.label5.Location = new System.Drawing.Point(15, 296);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(224, 17);
+			this.label5.TabIndex = 12;
+			this.label5.Text = "Размер фотографии для архива:";
+			// 
+			// label6
+			// 
+			this.label6.AutoSize = true;
+			this.label6.Location = new System.Drawing.Point(144, 318);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(70, 17);
+			this.label6.TabIndex = 13;
+			this.label6.Text = "пикселей";
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(758, 571);
+			this.Controls.Add(this.label6);
+			this.Controls.Add(this.label5);
+			this.Controls.Add(this.nudArchSize);
+			this.Controls.Add(this.label4);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.label1);
@@ -142,6 +201,7 @@
 			this.Controls.Add(this.btnShowImage);
 			this.Name = "MainForm";
 			this.Text = "MainForm";
+			((System.ComponentModel.ISupportInitialize)(this.nudArchSize)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -159,6 +219,10 @@
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.NumericUpDown nudArchSize;
+		private System.Windows.Forms.Label label5;
+		private System.Windows.Forms.Label label6;
 	}
 }
 

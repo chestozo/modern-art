@@ -9,24 +9,38 @@ namespace Painting
 {
 	public class ImageManager
 	{
-		private string _folder;
-		private Form _form;
-		private Timer _tick;
-		private FileInfo _currentImage;
 		private const int _updateInterval = 300; // milliseconds
+		
+		private readonly string _directory;
+		private int _archImageSize; //px
+		private readonly Timer _tick;
+		private Form _form;
+		
+		private FileInfo _currentImage;
+		
+		public ImageManager(string directory, int archImageSize)
+		{
+			_directory = directory;
+			_archImageSize = archImageSize;
+			_tick = new Timer { Interval = _updateInterval };
+		}
+
+		public int ArchSize
+		{
+			get { return _archImageSize; }
+			set { _archImageSize = value; }
+		}
 
 		// Хранит текущую отображаемую картинку.
 		private Image _image;
 
-		public void Init(string folder, Form form)
+		public void Init(Form form)
 		{
 			_form = form;
-			_folder = folder;
 
 			InitEmptyImage();
 			ShowMalevich();
 
-			_tick = new Timer { Interval = _updateInterval };
 			_tick.Tick += _tick_Tick;
 
 			_form.Resize += delegate { UpdateImageSize(); };
@@ -74,9 +88,11 @@ namespace Painting
 			if (mostRecent != null && (_currentImage == null || _currentImage.FullName != mostRecent.FullName))
 			{
 				DrawImage(mostRecent);
-				ArchiveImage(_currentImage);
 				_currentImage = mostRecent;
 				_form.Invalidate();
+
+				// Save image copy asynchronously.
+				new Thread(() => ArchiveImage(_currentImage)).Start();
 			}
 		}
 
@@ -126,18 +142,47 @@ namespace Painting
 		private FileInfo GetMostRecentImage()
 		{
 			FileInfo mostRecent = null;
-			foreach (var fileName in Directory.GetFiles(_folder, "*.jpg"))
+			foreach (var fileName in Directory.GetFiles(_directory, "*.jpg"))
 			{
-				var fi = new FileInfo(Path.Combine(_folder, fileName));
+				var fi = new FileInfo(Path.Combine(_directory, fileName));
 				if (mostRecent == null || fi.CreationTime > mostRecent.CreationTime)
 					mostRecent = fi;
 			}
 			return mostRecent;
 		}
 
+		/// <summary>
+		/// Creates a copy of the image with maximum side equal to 500px. And saves it to archive directory.
+		/// </summary>
+		/// <param name="file"></param>
 		private void ArchiveImage(FileInfo file)
 		{
+			// Create archive directory if not already exists.
+			var archDirectory = Path.Combine(_directory, "archive");
+			if (!Directory.Exists(archDirectory))
+				Directory.CreateDirectory(archDirectory);
+			
+			using (var image = Image.FromFile(file.FullName))
+			{
+				//Scale
+				var sw = (double) image.Width/_archImageSize;
+				var sh = (double) image.Height/_archImageSize;
+				var s = Math.Max(sw, sh);
 
+				//Calculate point
+				var w = image.Width/s;
+				var h = image.Height/s;
+
+				//Draw 
+				using (var copy = new Bitmap((int)w, (int)h))
+				{
+					using (var g = Graphics.FromImage(copy))
+					{
+						g.DrawImage(image, 0, 0, (int) w, (int) h);
+					}
+					copy.Save(Path.Combine(archDirectory, file.Name));
+				}
+			}
 		}
 
 		private void InitEmptyImage()
