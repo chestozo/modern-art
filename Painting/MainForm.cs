@@ -3,12 +3,12 @@ using System.Windows.Forms;
 
 namespace Painting
 {
-	public partial class Form1 : Form
+	public partial class MainForm : Form
 	{
 		private readonly FormState maximizer = new FormState();
 		private Viewer _imageViewForm;
 
-		public Form1()
+		public MainForm()
 		{
 			InitializeComponent();
 		}

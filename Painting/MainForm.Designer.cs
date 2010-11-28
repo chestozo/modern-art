@@ -1,6 +1,6 @@
 ﻿namespace Painting
 {
-	partial class Form1
+	partial class MainForm
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -85,7 +85,7 @@
 			this.btnMaximize.UseVisualStyleBackColor = true;
 			this.btnMaximize.Click += new System.EventHandler(this.btnMaximize_Click);
 			// 
-			// Form1
+			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -95,8 +95,8 @@
 			this.Controls.Add(this.selectFolder);
 			this.Controls.Add(this.tbFolder);
 			this.Controls.Add(this.button1);
-			this.Name = "Form1";
-			this.Text = "Form1";
+			this.Name = "MainForm";
+			this.Text = "MainForm";
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

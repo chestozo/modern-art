@@ -2,3 +2,5 @@ _ReSharper*
 Painting/bin/**/*
 Painting/obj/**/*
 *.suo
+*.resharper
+*.resharper.user
