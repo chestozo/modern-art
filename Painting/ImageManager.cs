@@ -92,7 +92,8 @@ namespace Painting
 				_form.Invalidate();
 
 				// Save image copy asynchronously.
-				new Thread(() => ArchiveImage(_currentImage)).Start();
+				var thread = new Thread(() => ArchiveImage(_currentImage));
+				thread.Start();
 			}
 		}
 
