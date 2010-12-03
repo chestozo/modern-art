@@ -41,7 +41,7 @@ namespace Painting
 			}
 		}
 
-		public static bool CopyArchiveToExternalStorage(string archDirectory, string driveName)
+		public static bool CopyArchiveToExternalStorage(string archDirectory, string driveName, string fileNameMask)
 		{
 			try
 			{
@@ -52,7 +52,7 @@ namespace Painting
 				Directory.CreateDirectory(destDir);
 				
 				// Copy file by file.
-				foreach (var file in dir.GetFiles())
+				foreach (var file in dir.GetFiles(fileNameMask))
 				{
 					file.CopyTo(Path.Combine(destDir, file.Name), true);
 				}

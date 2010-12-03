@@ -18,6 +18,8 @@ namespace Painting
 		private Form _form;
 		
 		private FileInfo _currentImage;
+
+		public const string ImageFileMask = "*.jpg";
 		
 		public ImageManager(string directory, int archImageSize)
 		{
@@ -150,7 +152,7 @@ namespace Painting
 		private FileInfo GetMostRecentImage()
 		{
 			FileInfo mostRecent = null;
-			foreach (var fileName in Directory.GetFiles(_directory, "*.jpg"))
+			foreach (var fileName in Directory.GetFiles(_directory, ImageFileMask))
 			{
 				var fi = new FileInfo(Path.Combine(_directory, fileName));
 				if (mostRecent == null || fi.CreationTime > mostRecent.CreationTime)

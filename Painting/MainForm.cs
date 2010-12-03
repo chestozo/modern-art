@@ -38,7 +38,7 @@ namespace Painting
 		private void FlashInserted(object sender, DriveDetectorEventArgs e)
 		{
 			// Copy files to drive here.
-			if (ArchiveManager.CopyArchiveToExternalStorage(ImageMan.ArchDirectory, e.Drive))
+			if (ArchiveManager.CopyArchiveToExternalStorage(ImageMan.ArchDirectory, e.Drive, ImageManager.ImageFileMask))
 			{
 				if (cbRemoveArchiveAfterCopy.Checked)
 					ClearArchiveDirectory();
@@ -59,9 +59,13 @@ namespace Painting
 		{
 			try
 			{
-				if (Directory.Exists(ImageMan.ArchDirectory))
+				var dir = new DirectoryInfo(ImageMan.ArchDirectory);
+				if (dir.Exists)
 				{
-					Directory.Delete(ImageMan.ArchDirectory, true);
+					foreach (var f in dir.GetFiles(ImageManager.ImageFileMask))
+					{
+						f.Delete();
+					}
 				}
 			}
 			catch
