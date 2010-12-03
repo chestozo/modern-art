@@ -64,6 +64,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArchiveManager.cs" />
+    <Compile Include="External\DriveDetector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="External\WinApi.cs" />
     <Compile Include="FileHelper.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -74,6 +79,10 @@
     <Compile Include="ImageManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="External\DriveDetector.resx">
+      <DependentUpon>DriveDetector.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -93,7 +102,6 @@
     <Compile Include="Viewer.Designer.cs">
       <DependentUpon>Viewer.cs</DependentUpon>
     </Compile>
-    <Compile Include="WinApi.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

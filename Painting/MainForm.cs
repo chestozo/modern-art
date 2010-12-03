@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using Dolinay;
 
 namespace Painting
 {
@@ -18,6 +19,17 @@ namespace Painting
 		{
 			base.OnLoad(e);
 			FirstTimeLoad();
+
+			var detector = new DriveDetector(this);
+			detector.DeviceArrived += FlashInserted;
+			var detectorForm = new DetectorForm(detector);
+			
+			detectorForm.Show();
+		}
+
+		private void FlashInserted(object sender, DriveDetectorEventArgs e)
+		{
+			// Copy files to drive here.
 		}
 
 		private void FirstTimeLoad()
