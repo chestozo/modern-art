@@ -43,7 +43,7 @@ namespace Dolinay
 
 		private void Form_Activated(object sender, EventArgs e)
 		{
-			Visible = false;
+			//Visible = false;
 		}
 
 		/// <summary>

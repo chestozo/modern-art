@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Windows.Forms;
 using Dolinay;
 
@@ -10,6 +11,16 @@ namespace Painting
 		private Viewer _imageViewForm;
 		private ImageManager _imgMan;
 
+		private ImageManager ImageMan
+		{
+			get
+			{
+				if (_imgMan == null)
+					_imgMan = new ImageManager(tbFolder.Text, (int)nudArchSize.Value);
+				return _imgMan;
+			}
+		}
+
 		public MainForm()
 		{
 			InitializeComponent();
@@ -20,17 +31,41 @@ namespace Painting
 			base.OnLoad(e);
 			FirstTimeLoad();
 
-			var detector = new DriveDetector(this);
+			var detector = new DriveDetector();
 			detector.DeviceArrived += FlashInserted;
-			var detectorForm = new DetectorForm(detector);
-			
-			detectorForm.Show();
 		}
 
 		private void FlashInserted(object sender, DriveDetectorEventArgs e)
 		{
 			// Copy files to drive here.
-			ArchiveManager.CopyArchiveToExternalStorage(_imgMan.ArchDirectory, e.Drive);
+			if (ArchiveManager.CopyArchiveToExternalStorage(ImageMan.ArchDirectory, e.Drive))
+			{
+				if (cbRemoveArchiveAfterCopy.Checked)
+					ClearArchiveDirectory();
+			}
+			else
+			{
+				MessageBox.Show(
+					"Не удалось скопировать все файлы. Необходимо скопировать их вручную. Возможно, просто не хватило места на диске.",
+					"Не удалось скопировать файлы на внешний диск",
+					MessageBoxButtons.OK,
+					MessageBoxIcon.Warning
+					);
+
+			}
+		}
+
+		private void ClearArchiveDirectory()
+		{
+			try
+			{
+				if (Directory.Exists(ImageMan.ArchDirectory))
+				{
+					Directory.Delete(ImageMan.ArchDirectory, true);
+				}
+			}
+			catch
+			{}
 		}
 
 		private void FirstTimeLoad()
@@ -40,14 +75,12 @@ namespace Painting
 
 		private void btnShowImage_Click(object sender, EventArgs e)
 		{
-			_imgMan = new ImageManager(tbFolder.Text, (int)nudArchSize.Value);
-
 			_imageViewForm = new Viewer();
 			_imageViewForm.Show();
 
-			_imgMan.Init(_imageViewForm);
-			_imageViewForm.DrawAction = _imgMan.Draw;
-			_imgMan.StartMonitor();
+			ImageMan.Init(_imageViewForm);
+			_imageViewForm.DrawAction = ImageMan.Draw;
+			ImageMan.StartMonitor();
 		}
 
 		private void selectFolder_Click(object sender, EventArgs e)
@@ -70,12 +103,12 @@ namespace Painting
 
 		private void btnRefresh_Click(object sender, EventArgs e)
 		{
-			_imgMan.UpdateImageSize();
+			ImageMan.UpdateImageSize();
 		}
 
 		private void nudArchSize_ValueChanged(object sender, EventArgs e)
 		{
-			_imgMan.ArchSize = (int)nudArchSize.Value;
+			ImageMan.ArchSize = (int)nudArchSize.Value;
 		}
 	}
 }

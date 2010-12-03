@@ -48,13 +48,13 @@ namespace Painting
 				var dir = new DirectoryInfo(archDirectory);
 				
 				// Create destination directory.
-				var destDir = Path.Combine(driveName, string.Format("photo_room_{0:dd.MM.yyyy_HH.mm}", DateTime.Now));
+				var destDir = Path.Combine(driveName, string.Format("photo_room_{0:dd.MM.yyyy_HH.mm.ss}", DateTime.Now));
 				Directory.CreateDirectory(destDir);
 				
 				// Copy file by file.
 				foreach (var file in dir.GetFiles())
 				{
-					file.CopyTo(Path.Combine(destDir, file.Name));
+					file.CopyTo(Path.Combine(destDir, file.Name), true);
 				}
 			
 				// Success.
