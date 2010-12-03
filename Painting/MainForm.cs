@@ -30,6 +30,7 @@ namespace Painting
 		private void FlashInserted(object sender, DriveDetectorEventArgs e)
 		{
 			// Copy files to drive here.
+			ArchiveManager.CopyArchiveToExternalStorage(_imgMan.ArchDirectory, e.Drive);
 		}
 
 		private void FirstTimeLoad()

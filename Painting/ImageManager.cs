@@ -12,6 +12,7 @@ namespace Painting
 		private const int _updateInterval = 300; // milliseconds
 		
 		private readonly string _directory;
+		private readonly string _archDirectory;
 		private int _archImageSize; //px
 		private readonly Timer _tick;
 		private Form _form;
@@ -21,6 +22,7 @@ namespace Painting
 		public ImageManager(string directory, int archImageSize)
 		{
 			_directory = directory;
+			_archDirectory = Path.Combine(_directory, "archive");
 			_archImageSize = archImageSize;
 			_tick = new Timer { Interval = _updateInterval };
 		}
@@ -29,6 +31,11 @@ namespace Painting
 		{
 			get { return _archImageSize; }
 			set { _archImageSize = value; }
+		}
+
+		public string ArchDirectory
+		{
+			get { return _archDirectory; }
 		}
 
 		// Хранит текущую отображаемую картинку.
@@ -92,7 +99,7 @@ namespace Painting
 				_form.Invalidate();
 
 				// Save image copy asynchronously.
-				var thread = new Thread(() => ArchiveImage(_currentImage));
+				var thread = new Thread(() => ArchiveManager.ArchiveImage(_currentImage, _archDirectory, _archImageSize));
 				thread.Start();
 			}
 		}
@@ -150,40 +157,6 @@ namespace Painting
 					mostRecent = fi;
 			}
 			return mostRecent;
-		}
-
-		/// <summary>
-		/// Creates a copy of the image with maximum side equal to 500px. And saves it to archive directory.
-		/// </summary>
-		/// <param name="file"></param>
-		private void ArchiveImage(FileInfo file)
-		{
-			// Create archive directory if not already exists.
-			var archDirectory = Path.Combine(_directory, "archive");
-			if (!Directory.Exists(archDirectory))
-				Directory.CreateDirectory(archDirectory);
-			
-			using (var image = Image.FromFile(file.FullName))
-			{
-				//Scale
-				var sw = (double) image.Width/_archImageSize;
-				var sh = (double) image.Height/_archImageSize;
-				var s = Math.Max(sw, sh);
-
-				//Calculate point
-				var w = image.Width/s;
-				var h = image.Height/s;
-
-				//Draw 
-				using (var copy = new Bitmap((int)w, (int)h))
-				{
-					using (var g = Graphics.FromImage(copy))
-					{
-						g.DrawImage(image, 0, 0, (int) w, (int) h);
-					}
-					copy.Save(Path.Combine(archDirectory, file.Name));
-				}
-			}
 		}
 
 		private void InitEmptyImage()
