@@ -71,6 +71,8 @@ namespace Painting
 		private void FirstTimeLoad()
 		{
 			tbFolder.Text = Properties.Settings.Default.workingDirectory;
+			nudArchSize.Value = Properties.Settings.Default.archSize;
+			cbRemoveArchiveAfterCopy.Checked = Properties.Settings.Default.removeArchiveAfterCopied;
 		}
 
 		private void btnShowImage_Click(object sender, EventArgs e)

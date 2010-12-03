@@ -31,5 +31,23 @@ namespace Painting.Properties {
                 return ((string)(this["workingDirectory"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("500")]
+        public int archSize {
+            get {
+                return ((int)(this["archSize"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool removeArchiveAfterCopied {
+            get {
+                return ((bool)(this["removeArchiveAfterCopied"]));
+            }
+        }
     }
 }

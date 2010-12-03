@@ -5,5 +5,11 @@
     <Setting Name="workingDirectory" Type="System.String" Scope="Application">
       <Value Profile="(Default)">C:\Users\chestozo\Pictures\PaintingTest</Value>
     </Setting>
+    <Setting Name="archSize" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">500</Value>
+    </Setting>
+    <Setting Name="removeArchiveAfterCopied" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
