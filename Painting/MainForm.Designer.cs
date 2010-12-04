@@ -42,7 +42,7 @@
 			this.nudArchSize = new System.Windows.Forms.NumericUpDown();
 			this.label5 = new System.Windows.Forms.Label();
 			this.label6 = new System.Windows.Forms.Label();
-			this.cbRemoveArchiveAfterCopy = new System.Windows.Forms.CheckBox();
+			this.cbRemoveImagesAfterArchive = new System.Windows.Forms.CheckBox();
 			((System.ComponentModel.ISupportInitialize)(this.nudArchSize)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -182,24 +182,24 @@
 			this.label6.TabIndex = 13;
 			this.label6.Text = "пикселей";
 			// 
-			// cbRemoveArchiveAfterCopy
+			// cbRemoveImagesAfterArchive
 			// 
-			this.cbRemoveArchiveAfterCopy.AutoSize = true;
-			this.cbRemoveArchiveAfterCopy.Checked = true;
-			this.cbRemoveArchiveAfterCopy.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.cbRemoveArchiveAfterCopy.Location = new System.Drawing.Point(18, 354);
-			this.cbRemoveArchiveAfterCopy.Name = "cbRemoveArchiveAfterCopy";
-			this.cbRemoveArchiveAfterCopy.Size = new System.Drawing.Size(419, 21);
-			this.cbRemoveArchiveAfterCopy.TabIndex = 14;
-			this.cbRemoveArchiveAfterCopy.Text = "После копирования архива удалять файлы из компьютера";
-			this.cbRemoveArchiveAfterCopy.UseVisualStyleBackColor = true;
+			this.cbRemoveImagesAfterArchive.AutoSize = true;
+			this.cbRemoveImagesAfterArchive.Checked = true;
+			this.cbRemoveImagesAfterArchive.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.cbRemoveImagesAfterArchive.Location = new System.Drawing.Point(18, 354);
+			this.cbRemoveImagesAfterArchive.Name = "cbRemoveImagesAfterArchive";
+			this.cbRemoveImagesAfterArchive.Size = new System.Drawing.Size(287, 21);
+			this.cbRemoveImagesAfterArchive.TabIndex = 14;
+			this.cbRemoveImagesAfterArchive.Text = "Удалять фотографии после архивации";
+			this.cbRemoveImagesAfterArchive.UseVisualStyleBackColor = true;
 			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(758, 571);
-			this.Controls.Add(this.cbRemoveArchiveAfterCopy);
+			this.Controls.Add(this.cbRemoveImagesAfterArchive);
 			this.Controls.Add(this.label6);
 			this.Controls.Add(this.label5);
 			this.Controls.Add(this.nudArchSize);
@@ -237,7 +237,7 @@
 		private System.Windows.Forms.NumericUpDown nudArchSize;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Label label6;
-		private System.Windows.Forms.CheckBox cbRemoveArchiveAfterCopy;
+		private System.Windows.Forms.CheckBox cbRemoveImagesAfterArchive;
 	}
 }
 

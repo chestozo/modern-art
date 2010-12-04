@@ -40,8 +40,10 @@ namespace Painting
 			// Copy files to drive here.
 			if (ArchiveManager.CopyArchiveToExternalStorage(ImageMan.ArchDirectory, e.Drive, ImageManager.ImageFileMask))
 			{
-				if (cbRemoveArchiveAfterCopy.Checked)
-					ClearArchiveDirectory();
+				var allDone = 
+					cbRemoveImagesAfterArchive.Checked
+					&& ClearArchiveDirectory()
+					&& RemoveBigImages();
 			}
 			else
 			{
@@ -55,28 +57,46 @@ namespace Painting
 			}
 		}
 
-		private void ClearArchiveDirectory()
+		private bool ClearArchiveDirectory()
+		{
+			return RemoveImages(ImageMan.ArchDirectory, null);
+		}
+
+		private bool RemoveBigImages()
+		{
+			return RemoveImages(ImageMan.WorkingDirectory, ImageMan.CurrentImage);
+		}
+
+		private static bool RemoveImages(string dirPath, string keepFile)
 		{
 			try
 			{
-				var dir = new DirectoryInfo(ImageMan.ArchDirectory);
+				var dir = new DirectoryInfo(dirPath);
 				if (dir.Exists)
 				{
 					foreach (var f in dir.GetFiles(ImageManager.ImageFileMask))
 					{
+						if (f.FullName == keepFile)
+							continue;
 						f.Delete();
 					}
 				}
+				return true;
 			}
-			catch
-			{}
+			catch(Exception ex)
+			{
+#if DEBUG
+				MessageBox.Show(ex.ToString(), "Debug", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+#endif
+			}
+			return false;
 		}
 
 		private void FirstTimeLoad()
 		{
 			tbFolder.Text = Properties.Settings.Default.workingDirectory;
 			nudArchSize.Value = Properties.Settings.Default.archSize;
-			cbRemoveArchiveAfterCopy.Checked = Properties.Settings.Default.removeArchiveAfterCopied;
+			cbRemoveImagesAfterArchive.Checked = Properties.Settings.Default.removeArchiveAfterCopied;
 		}
 
 		private void btnShowImage_Click(object sender, EventArgs e)

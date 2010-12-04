@@ -40,6 +40,16 @@ namespace Painting
 			get { return _archDirectory; }
 		}
 
+		public string WorkingDirectory
+		{
+			get { return _directory; }
+		}
+
+		public string CurrentImage
+		{
+			get { return _currentImage.FullName; }
+		}
+
 		// Хранит текущую отображаемую картинку.
 		private Image _image;
 
