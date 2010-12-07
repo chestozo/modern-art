@@ -14,31 +14,37 @@ namespace Painting
 		/// <param name="imageSize">Max image size value.</param>
 		public static void ArchiveImage(FileInfo file, string archDirectory, int imageSize)
 		{
-			// Create archive directory if not already exists.
-			if (!Directory.Exists(archDirectory))
-				Directory.CreateDirectory(archDirectory);
-
-			using (var image = Image.FromFile(file.FullName))
+			try
 			{
-				//Scale
-				var sw = (double)image.Width / imageSize;
-				var sh = (double)image.Height / imageSize;
-				var s = Math.Max(sw, sh);
+				// Create archive directory if not already exists.
+				if (!Directory.Exists(archDirectory))
+					Directory.CreateDirectory(archDirectory);
 
-				//Calculate point
-				var w = image.Width / s;
-				var h = image.Height / s;
-
-				//Draw 
-				using (var copy = new Bitmap((int)w, (int)h))
+				// Here we can get OutOfMemoryException in case image is corrupted.
+				using (var image = Image.FromFile(file.FullName))
 				{
-					using (var g = Graphics.FromImage(copy))
+					//Scale
+					var sw = (double) image.Width/imageSize;
+					var sh = (double) image.Height/imageSize;
+					var s = Math.Max(sw, sh);
+
+					//Calculate point
+					var w = image.Width/s;
+					var h = image.Height/s;
+
+					//Draw 
+					using (var copy = new Bitmap((int) w, (int) h))
 					{
-						g.DrawImage(image, 0, 0, (int)w, (int)h);
+						using (var g = Graphics.FromImage(copy))
+						{
+							g.DrawImage(image, 0, 0, (int) w, (int) h);
+						}
+						copy.Save(Path.Combine(archDirectory, file.Name));
 					}
-					copy.Save(Path.Combine(archDirectory, file.Name));
 				}
 			}
+			catch
+			{}
 		}
 
 		public static bool CopyArchiveToExternalStorage(string archDirectory, string driveName, string fileNameMask)

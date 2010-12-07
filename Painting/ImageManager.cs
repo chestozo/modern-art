@@ -131,34 +131,41 @@ namespace Painting
 
 		private void DrawImage(FileInfo imageFile)
 		{
-			if (imageFile == null)
-				return;
-
-			var fileName = imageFile.FullName;
-			while(FileHelper.IsFileInUse(fileName))
-				Thread.Sleep(200);
-
-			using (var image = Image.FromFile(fileName))
+			try
 			{
-				//Scale
-				var sw = (double)image.Width / _image.Width;
-				var sh = (double)image.Height / _image.Height;
-				var s = Math.Max(sw, sh);
+				if (imageFile == null)
+					return;
 
-				//Calculate point
-				var w = image.Width / s;
-				var h = image.Height / s;
+				var fileName = imageFile.FullName;
+				while (FileHelper.IsFileInUse(fileName))
+					Thread.Sleep(200);
 
-				var x = (_image.Width - w) / 2;
-				var y = (_image.Height - h) / 2;
-
-				//Draw 
-				using (var g = Graphics.FromImage(_image))
+				// Here we can get OutOfMemoryException for example when image is corrupted.
+				using (var image = Image.FromFile(fileName))
 				{
-					ShowMalevich(g);
-					g.Flush();
-					g.DrawImage(image, (int)x, (int)y, (int)w, (int)h);
+					//Scale
+					var sw = (double) image.Width/_image.Width;
+					var sh = (double) image.Height/_image.Height;
+					var s = Math.Max(sw, sh);
+
+					//Calculate point
+					var w = image.Width/s;
+					var h = image.Height/s;
+
+					var x = (_image.Width - w)/2;
+					var y = (_image.Height - h)/2;
+
+					//Draw 
+					using (var g = Graphics.FromImage(_image))
+					{
+						ShowMalevich(g);
+						g.Flush();
+						g.DrawImage(image, (int) x, (int) y, (int) w, (int) h);
+					}
 				}
+			}
+			catch
+			{
 			}
 		}
 
