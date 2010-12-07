@@ -102,11 +102,14 @@ namespace Painting
 		private void btnShowImage_Click(object sender, EventArgs e)
 		{
 			_imageViewForm = new Viewer();
+			ImageMan.Init(_imageViewForm);
+			
+			_imageViewForm.Closing += delegate { ImageMan.StopMonitor(); };
+			_imageViewForm.DrawAction = ImageMan.Draw;
 			_imageViewForm.Show();
 
-			ImageMan.Init(_imageViewForm);
-			_imageViewForm.DrawAction = ImageMan.Draw;
 			ImageMan.StartMonitor();
+			ImageMan.UpdateImageSize();
 		}
 
 		private void selectFolder_Click(object sender, EventArgs e)
