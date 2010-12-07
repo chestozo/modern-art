@@ -131,6 +131,9 @@ namespace Painting
 
 		private void DrawImage(FileInfo imageFile)
 		{
+			if (imageFile == null)
+				return;
+
 			var fileName = imageFile.FullName;
 			while(FileHelper.IsFileInUse(fileName))
 				Thread.Sleep(200);

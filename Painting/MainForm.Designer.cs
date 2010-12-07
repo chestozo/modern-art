@@ -66,7 +66,6 @@
 			this.tbFolder.ReadOnly = true;
 			this.tbFolder.Size = new System.Drawing.Size(610, 22);
 			this.tbFolder.TabIndex = 1;
-			this.tbFolder.TextChanged += new System.EventHandler(this.tbFolder_TextChanged);
 			// 
 			// selectFolder
 			// 
@@ -210,7 +209,7 @@
 			this.groupBox1.Controls.Add(this.nudArchSize);
 			this.groupBox1.Location = new System.Drawing.Point(7, 213);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(739, 201);
+			this.groupBox1.Size = new System.Drawing.Size(739, 287);
 			this.groupBox1.TabIndex = 16;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Допонительные настройки";
@@ -219,7 +218,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(758, 425);
+			this.ClientSize = new System.Drawing.Size(758, 507);
 			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.label2);
