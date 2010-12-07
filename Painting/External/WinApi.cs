@@ -60,7 +60,7 @@ namespace Painting
 				Save(targetForm);
 				targetForm.WindowState = FormWindowState.Maximized;
 				targetForm.FormBorderStyle = FormBorderStyle.None;
-				//targetForm.TopMost = true;
+				targetForm.TopMost = true;
 				WinApi.SetWinFullScreen(targetForm.Handle);
 			}
 		}

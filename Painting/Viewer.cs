@@ -6,6 +6,8 @@ namespace Painting
 {
 	public partial class Viewer : Form
 	{
+		private Timer _timer;
+
 		public Viewer()
 		{
 			InitializeComponent();
@@ -22,6 +24,16 @@ namespace Painting
 		{
 			private get;
 			set;
+		}
+
+		protected override void OnLoad(EventArgs e)
+		{
+			base.OnLoad(e);
+
+			// Every second we force this window to become the top most window.
+			_timer = new Timer { Interval = 1000 };
+			_timer.Tick += delegate { BringToFront(); };
+			_timer.Start();
 		}
 	}
 }
