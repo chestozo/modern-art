@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 
 namespace Painting
@@ -39,7 +40,7 @@ namespace Painting
 						{
 							g.DrawImage(image, 0, 0, (int) w, (int) h);
 						}
-						copy.Save(Path.Combine(archDirectory, file.Name));
+						copy.Save(Path.Combine(archDirectory, file.Name), ImageFormat.Jpeg);
 					}
 				}
 			}
